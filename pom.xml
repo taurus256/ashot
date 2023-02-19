@@ -4,7 +4,7 @@
 
     <groupId>io.github.pazone</groupId>
     <artifactId>ashot</artifactId>
-    <version>1.6.0-SNAPSHOT-TAU-6</version>
+    <version>1.6.0-SNAPSHOT-TAU-8</version>
 
     <licenses>
         <license>
@@ -71,7 +71,6 @@
             <version>4.2</version>
         </dependency>
     </dependencies>
-
 
     <build>
         <plugins>

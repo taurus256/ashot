@@ -108,10 +108,11 @@ public final class ShootingStrategies {
         return viewportPasting(simple(), scrollTimeout);
     }
 
-    public static ShootingStrategy viewportPasting(ShootingStrategy shootingStrategy, int scrollTimeout, int intersection) {
+    public static ShootingStrategy viewportPasting(ShootingStrategy shootingStrategy,
+        int scrollTimeout, int intersection) {
         return new ViewportPastingDecorator(shootingStrategy)
-                .withScrollTimeout(scrollTimeout)
-                .withIntersection(intersection);
+            .withScrollTimeout(scrollTimeout)
+            .withIntersection(intersection);
     }
 
     /**
