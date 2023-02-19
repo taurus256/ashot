@@ -108,6 +108,12 @@ public final class ShootingStrategies {
         return viewportPasting(simple(), scrollTimeout);
     }
 
+    public static ShootingStrategy viewportPasting(ShootingStrategy shootingStrategy, int scrollTimeout, int intersection) {
+        return new ViewportPastingDecorator(shootingStrategy)
+                .withScrollTimeout(scrollTimeout)
+                .withIntersection(intersection);
+    }
+
     /**
      * Will scroll viewport while shooting and cut off browser's header and footer
      *

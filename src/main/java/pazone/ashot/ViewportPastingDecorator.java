@@ -21,6 +21,7 @@ public class ViewportPastingDecorator extends ShootingDecorator {
     public static final String PAGE_DIMENSIONS_JS = "js/page_dimensions.js";
 
     protected int scrollTimeout = 0;
+    protected int intersection = 0;
     private Coords shootingArea;
 
     public ViewportPastingDecorator(ShootingStrategy strategy) {
@@ -29,6 +30,11 @@ public class ViewportPastingDecorator extends ShootingDecorator {
 
     public ViewportPastingDecorator withScrollTimeout(int scrollTimeout) {
         this.scrollTimeout = scrollTimeout;
+        return this;
+    }
+
+    public ViewportPastingDecorator withIntersection(int scrollTimeout) {
+        this.intersection = scrollTimeout;
         return this;
     }
 
@@ -47,7 +53,7 @@ public class ViewportPastingDecorator extends ShootingDecorator {
                 BufferedImage.TYPE_3BYTE_BGR);
         Graphics2D graphics = finalImage.createGraphics();
 
-        int viewportHeight = pageDimensions.getViewportHeight() - 40; // try to exclude last line
+        int viewportHeight = pageDimensions.getViewportHeight() - intersection; //! try to exclude last line
         int scrollTimes = (int) Math.ceil(shootingArea.getHeight() / viewportHeight);
         for (int n = 0; n < scrollTimes; n++) {
             scrollVertically(js, shootingArea.y + viewportHeight * n);
